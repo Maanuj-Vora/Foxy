@@ -1,0 +1,14 @@
+{
+    "token": "BOT TOKEN",
+    "join_message": "I has entered",
+    "owners": [
+        362722438456410112
+    ],
+    "prefix": [
+        "!"
+    ],
+    "playing": "Alpha Release",
+    "playing_type": "playing|watching|listening",
+    "status_type": "online|idle|dnd",
+    "version": "0.0.1"
+}
