@@ -11,6 +11,7 @@ A basic discord bot heavily influenced by [discord_bot.py](https://github.com/Al
 * [x] Get Jokes, Chuck Norris Jokes, and Ron Swanson Quotes
 * [x] Grab Top Google News News
 * [x] Consult The All-Knowing 8Ball
+* [x] Shorten URLs
 * [x] Specific Admin Commands
 * [x] Specific Moderator Commands
 * [x] Greet New Members and Say Goodbye
@@ -29,7 +30,6 @@ A basic discord bot heavily influenced by [discord_bot.py](https://github.com/Al
 ### Please Read
 
 Please keep my account id in the owners in `config.json`
-
 ---
 
 ## Table of Commands
@@ -79,6 +79,7 @@ Please keep my account id in the owners in `config.json`
 | Moderator    | unban <user> [reason]    | Unbans a user from the current server                                 |
 | Moderator    | unmute <user> [reason]   | Unmutes a user from the current server                                |
 | News         | news <number>            | Gets The Top News Articles From Google News                           |
+| UrlShort     | urlshort <url>           | Shortens a URL                                                        |
 | No Category  | help                     | Show the help message                                                 |
 
 ---
@@ -91,3 +92,4 @@ Please keep my account id in the owners in `config.json`
 * [x] [https://randomfox.ca/](https://randomfox.ca/)
 * [x] [https://dog.ceo/](https://dog.ceo/)
 * [x] [https://thecatapi.com/](https://thecatapi.com/)
+* [x] [https://rel.ink/](https://rel.ink/)
