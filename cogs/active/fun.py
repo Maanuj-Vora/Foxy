@@ -23,10 +23,23 @@ class Fun(commands.Cog):
         self.process = psutil.Process(os.getpid())
         global QUERY_EXCEPTIONS
         global QUERY_ERROR
-        self.QUERY_EXCEPTIONS = (
+        QUERY_EXCEPTIONS = (
             discord.HTTPException, aiohttp.ClientError, asyncio.TimeoutError, commands.CommandError)
-        self.QUERY_ERROR = commands.CommandError(
+        QUERY_ERROR = commands.CommandError(
             'Query failed. Try again later.')
+
+    def urljson(url, headers):
+        try:
+            if(headers == None):
+                response = requests.get(url)
+            else:
+                response = requests.get(url, headers=headers)
+            if response.status_code != 200:
+                raise QUERY_ERROR
+            json = response.json()
+            return json
+        except QUERY_EXCEPTIONS:
+            raise QUERY_ERROR
 
     @commands.command(aliases=['8ball'])
     async def eightball(self, ctx, *, question: commands.clean_content):
@@ -36,68 +49,47 @@ class Fun(commands.Cog):
     @commands.command(aliases=['cn', 'cnjoke'])
     async def chucknorris(self, ctx):
         """ Get a Chuck Norris Joke """
-        try:
-            response = requests.get('http://api.icndb.com/jokes/random')
-            if response.status_code != 200:
-                raise QUERY_ERROR
-            json = response.json()
-            text = json['value'].get('joke')
-            await embed.embedText(ctx, 'Chuck Norris', text)
-        except self.QUERY_EXCEPTIONS:
-            raise QUERY_ERROR
+        json = Fun.urljson('http://api.icndb.com/jokes/random', None)
+        text = json['value'].get('joke')
+        await embed.embedText(ctx, 'Chuck Norris', text)
+
+    @commands.command(aliases=['rs', 'rsquote'])
+    async def ronswanson(self, ctx):
+        """ Get a Ron Swanson Quote """
+        json = Fun.urljson('http://ron-swanson-quotes.herokuapp.com/v2/quotes', None)
+        text = json[0]
+        await embed.embedText(ctx, 'Ron Swanson Says', text)
 
     @commands.command(aliases=['fox'])
     @commands.cooldown(rate=6, per=10.0, type=commands.BucketType.user)
     @commands.bot_has_permissions(embed_links=True)
     async def foxy(self, ctx):
         """ Get an image of a foxy """
-
-        try:
-            response = requests.get('https://randomfox.ca/floof/')
-            if response.status_code != 200:
-                raise QUERY_ERROR
-            json = response.json()
-            img_url = json['image']
-            await embed.embedImage(ctx, img_url)
-        except self.QUERY_EXCEPTIONS:
-            raise QUERY_ERROR
+        json = Fun.urljson('https://randomfox.ca/floof/', None)
+        img_url = json['image']
+        await embed.embedImage(ctx, img_url)
 
     @commands.command(aliases=['dog'])
     @commands.cooldown(rate=6, per=10.0, type=commands.BucketType.user)
     @commands.bot_has_permissions(embed_links=True)
     async def woof(self, ctx):
         """ Get an image of a Woof """
-
-        try:
-            response = requests.get('https://dog.ceo/api/breeds/image/random')
-            if response.status_code != 200:
-                raise QUERY_ERROR
-            json = response.json()
-            img_url = json['message']
-            await embed.embedImage(ctx, img_url)
-        except self.QUERY_EXCEPTIONS:
-            raise QUERY_ERROR
+        json = Fun.urljson('https://dog.ceo/api/breeds/image/random', None)
+        img_url = json['message']
+        await embed.embedImage(ctx, img_url)
 
     @commands.command(aliases=['cat'])
     @commands.cooldown(rate=6, per=10.0, type=commands.BucketType.user)
     @commands.bot_has_permissions(embed_links=True)
     async def meow(self, ctx):
         '''Get an image of a Meow'''
-
         if self.config.theCatAPI is None or self.config.theCatAPI == "https://thecatapi.com/":
             raise commands.CommandError('TheCatAPI is not setup.')
-        try:
-            resp = requests.get('https://api.thecatapi.com/v1/images/search',
-                                headers={'x-api-key': self.config.theCatAPI})
-            if resp.status_code != 200:
-                raise QUERY_ERROR
-            json = resp.json()
-            data = json[0]
-            img_url = data['url']
-            await embed.embedImage(ctx, img_url)
-        except self.QUERY_EXCEPTIONS:
-            raise QUERY_ERROR
+        json = Fun.urljson('https://api.thecatapi.com/v1/images/search', {'x-api-key': self.config.theCatAPI})
 
+        data = json[0]
+        img_url = data['url']
+        await embed.embedImage(ctx, img_url)
 
 
 def setup(bot):

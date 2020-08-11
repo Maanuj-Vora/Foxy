@@ -36,7 +36,8 @@ A basic discord bot heavily influenced by [discord_bot.py](https://github.com/Al
 | Discord Info | user <user>              | Get user information                                                  |
 | Fun          | chucknorris              | Get a Chuck Norris Joke                                               |
 | Fun          | foxy                     | Get an image of a foxy                                                |
-| Fun          | meow                     | Get an image of a Meow                                                || Fun          | woof                     | Get an image of a Woof                                                |
+| Fun          | meow                     | Get an image of a Meow                                                |
+| Fun          | ronswanson               | Get a Ron Swanson Quote                                               || Fun          | woof                     | Get an image of a Woof                                                |
 | Fun          | 8ball <question>         | Consult the supreme, all knowing 8ball to receive an answer           |
 | Information  | about                    | About the bot                                                         |
 | Information  | invite                   | Invite me to your server                                              |
