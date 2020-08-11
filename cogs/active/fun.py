@@ -49,9 +49,13 @@ class Fun(commands.Cog):
     @commands.command(aliases=['cn', 'cnjoke'])
     async def chucknorris(self, ctx):
         """ Get a Chuck Norris Joke """
-        json = Fun.urljson('http://api.icndb.com/jokes/random', None)
-        text = json['value'].get('joke')
-        await embed.embedText(ctx, 'Chuck Norris', text)
+        for x in range(0, 5):
+            json = Fun.urljson('http://api.icndb.com/jokes/random', None)
+            text = json['value'].get('joke')
+            if not any(map(text.__contains__, lists.profanity)):
+                await embed.embedText(ctx, 'Chuck Norris', text)
+                return
+        await embed.embedText(ctx, 'Chuck Norris', 'Could not find a PG Chuck Norris Joke')
 
     @commands.command()
     async def joke(self, ctx):
@@ -63,7 +67,8 @@ class Fun(commands.Cog):
                 #         'https://sv443.net/jokeapi/v2/joke/Any', None)
                 #     if json['category'] != "Dark" and json['flags'].get('nsfw') != True and json['flags'].get('political') != True and json['flags'].get('racist') != True and json['flags'].get('sexist') != True and json['lang'] == 'en':
                 #         break
-                json = Fun.urljson('https://sv443.net/jokeapi/v2/joke/Programming,Miscellaneous,Pun?blacklistFlags=nsfw,religious,political,racist,sexist', None)
+                json = Fun.urljson(
+                    'https://sv443.net/jokeapi/v2/joke/Programming,Miscellaneous,Pun?blacklistFlags=nsfw,religious,political,racist,sexist', None)
                 if json['type'] == 'twopart':
                     await embed.embedText(ctx, json['setup'], json['delivery'])
                 elif json['type'] == 'single':

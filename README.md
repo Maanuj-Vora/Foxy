@@ -87,7 +87,7 @@ Please keep my account id in the owners in `config.json`
 
 * [x] [http://www.icndb.com/](http://www.icndb.com/)
 * [x] [https://sv443.net/jokeapi/v2/](https://sv443.net/jokeapi/v2/)
-* [x] [http://ron-swanson-quotes.herokuapp.com/](http://ron-swanson-quotes.herokuapp.com/)
+* [x] [https://github.com/jamesseanwright/ron-swanson-quotes#ron-swanson-quotes-api](https://github.com/jamesseanwright/ron-swanson-quotes#ron-swanson-quotes-api)
 * [x] [https://randomfox.ca/](https://randomfox.ca/)
 * [x] [https://dog.ceo/](https://dog.ceo/)
 * [x] [https://thecatapi.com/](https://thecatapi.com/)
