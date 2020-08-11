@@ -49,13 +49,16 @@ class Fun(commands.Cog):
     @commands.command(aliases=['cn', 'cnjoke'])
     async def chucknorris(self, ctx):
         """ Get a Chuck Norris Joke """
-        for x in range(0, 5):
-            json = Fun.urljson('http://api.icndb.com/jokes/random', None)
-            text = json['value'].get('joke')
-            if not any(map(text.__contains__, lists.profanity)):
-                await embed.embedText(ctx, 'Chuck Norris', text)
-                return
-        await embed.embedText(ctx, 'Chuck Norris', 'Could not find a PG Chuck Norris Joke')
+        async with ctx.message.channel.typing():
+            for x in range(0, 5):
+                json = Fun.urljson('http://api.icndb.com/jokes/random', None)
+                text = json['value'].get('joke')
+                textLower = text.lower()
+                if not any(map(textLower.__contains__, lists.profanity)):
+                    await embed.embedText(ctx, text)
+                    return
+            await embed.embedText(ctx, 'Could not find a PG Chuck Norris Joke')
+            return
 
     @commands.command()
     async def joke(self, ctx):
@@ -71,10 +74,13 @@ class Fun(commands.Cog):
                     'https://sv443.net/jokeapi/v2/joke/Programming,Miscellaneous,Pun?blacklistFlags=nsfw,religious,political,racist,sexist', None)
                 if json['type'] == 'twopart':
                     await embed.embedText(ctx, json['setup'], json['delivery'])
+                    return
                 elif json['type'] == 'single':
-                    await embed.embedText(ctx, "", json['joke'])
+                    await embed.embedText(ctx, json['joke'])
+                    return
             except Exception as e:
                 await ctx.send("An Error Occured")
+                return
 
     @commands.command(aliases=['rs', 'rsquote'])
     async def ronswanson(self, ctx):
