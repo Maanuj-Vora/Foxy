@@ -58,11 +58,12 @@ class Fun(commands.Cog):
         """ Get a Random Joke """
         async with ctx.message.channel.typing():
             try:
-                while True:
-                    json = Fun.urljson(
-                        'https://sv443.net/jokeapi/v2/joke/Any', None)
-                    if json['category'] != "Dark" and json['flags'].get('nsfw') != True and json['flags'].get('political') != True and json['flags'].get('racist') != True and json['flags'].get('sexist') != True and json['lang'] == 'en':
-                        break
+                # while True:
+                #     json = Fun.urljson(
+                #         'https://sv443.net/jokeapi/v2/joke/Any', None)
+                #     if json['category'] != "Dark" and json['flags'].get('nsfw') != True and json['flags'].get('political') != True and json['flags'].get('racist') != True and json['flags'].get('sexist') != True and json['lang'] == 'en':
+                #         break
+                json = Fun.urljson('https://sv443.net/jokeapi/v2/joke/Programming,Miscellaneous,Pun?blacklistFlags=nsfw,religious,political,racist,sexist', None)
                 if json['type'] == 'twopart':
                     await embed.embedText(ctx, json['setup'], json['delivery'])
                 elif json['type'] == 'single':
