@@ -15,7 +15,6 @@ A basic discord bot heavily influenced by [discord_bot.py](https://github.com/Al
 * [x] Specific Moderator Commands
 * [x] Greet New Members and Say Goodbye
 
-
 ---
 
 ## Installation
@@ -30,7 +29,6 @@ A basic discord bot heavily influenced by [discord_bot.py](https://github.com/Al
 ### Please Read
 
 Please keep my account id in the owners in `config.json`
-
 ---
 
 ## Table of Commands
@@ -81,3 +79,14 @@ Please keep my account id in the owners in `config.json`
 | Moderator    | unmute <user> [reason]   | Unmutes a user from the current server                                |
 | News         | news <number>            | Gets The Top News Articles From Google News                           |
 | No Category  | help                     | Show the help message                                                 |
+
+---
+
+## Api's Utilized
+
+* [x] [http://www.icndb.com/](http://www.icndb.com/)
+* [x] [https://sv443.net/jokeapi/v2/](https://sv443.net/jokeapi/v2/)
+* [x] [http://ron-swanson-quotes.herokuapp.com/](http://ron-swanson-quotes.herokuapp.com/)
+* [x] [https://randomfox.ca/](https://randomfox.ca/)
+* [x] [https://dog.ceo/](https://dog.ceo/)
+* [x] [https://thecatapi.com/](https://thecatapi.com/)
