@@ -7,7 +7,7 @@ A basic discord bot heavily influenced by [discord_bot.py](https://github.com/Al
 
 ## Features
 
-* [x] Get An Image of A Foxy
+* [x] Get An Image of A Foxy, Meow, and Woof
 * [x] Specific Admin Commands(Only shown in code)
 * [x] Specific Moderator Commands(Shown in help message)
 * [x] Greet New Members and Say Goodbye
