@@ -26,9 +26,6 @@ A basic discord bot heavily influenced by [discord_bot.py](https://github.com/Al
 | Admin        | reloadutils <name>       | Reloads a utils module.                                               |
 | Admin        | reboot                   | Reboot the bot                                                        |
 | Admin        | dm <user_id> [message]   | Direct message the user of your choice                                |
-| Animal       | foxy                     | Get an image of a foxy                                                |
-| Animal       | woof                     | Get an image of a Woof                                                |
-| Animal       | meow                     | Get an image of a Meow                                                |
 | Discord Info | avatar <user>            | Get the avatar of you or someone else                                 |
 | Discord Info | joinedat <user>          | Check when a user joined the current server                           |
 | Discord Info | mods                     | Check which mods are online on current guild                          |
@@ -38,6 +35,8 @@ A basic discord bot heavily influenced by [discord_bot.py](https://github.com/Al
 | Discord Info | server banner            | Get the current banner image                                          |
 | Discord Info | user <user>              | Get user information                                                  |
 | Fun          | chucknorris              | Get a Chuck Norris Joke                                               |
+| Fun          | foxy                     | Get an image of a foxy                                                |
+| Fun          | meow                     | Get an image of a Meow                                                || Fun          | woof                     | Get an image of a Woof                                                |
 | Fun          | 8ball <question>         | Consult the supreme, all knowing 8ball to receive an answer           |
 | Information  | about                    | About the bot                                                         |
 | Information  | invite                   | Invite me to your server                                              |
