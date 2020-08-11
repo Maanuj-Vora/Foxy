@@ -10,5 +10,7 @@
     "playing": "Alpha Release",
     "playing_type": "playing|watching|listening",
     "status_type": "online|idle|dnd",
-    "version": "0.0.1"
+    "version": "0.0.1",
+    "welcome": "Welcome member.mention to our cozy little home.",
+    "leave": "Sorry to see you go member.mention"
 }
