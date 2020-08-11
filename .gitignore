@@ -7,3 +7,6 @@ foxy
 # __pycache__
 cogs/active/__pycache__
 utils/__pycache__
+
+# Garbage
+settings.json

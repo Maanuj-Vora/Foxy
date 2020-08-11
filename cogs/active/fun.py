@@ -53,43 +53,74 @@ class Fun(commands.Cog):
         text = json['value'].get('joke')
         await embed.embedText(ctx, 'Chuck Norris', text)
 
+    @commands.command()
+    async def joke(self, ctx):
+        """ Get a Random Joke """
+        async with ctx.message.channel.typing():
+            try:
+                while True:
+                    json = Fun.urljson(
+                        'https://sv443.net/jokeapi/v2/joke/Any', None)
+                    if json['category'] != "Dark" and json['flags'].get('nsfw') != True and json['flags'].get('political') != True and json['flags'].get('racist') != True and json['flags'].get('sexist') != True and json['lang'] == 'en':
+                        break
+                if json['type'] == 'twopart':
+                    await embed.embedText(ctx, json['setup'], json['delivery'])
+                elif json['type'] == 'single':
+                    await embed.embedText(ctx, "", json['joke'])
+            except Exception as e:
+                await ctx.send("An Error Occured")
+
     @commands.command(aliases=['rs', 'rsquote'])
     async def ronswanson(self, ctx):
         """ Get a Ron Swanson Quote """
-        json = Fun.urljson('http://ron-swanson-quotes.herokuapp.com/v2/quotes', None)
-        text = json[0]
-        await embed.embedText(ctx, 'Ron Swanson Says', text)
+        try:
+            json = Fun.urljson(
+                'http://ron-swanson-quotes.herokuapp.com/v2/quotes', None)
+            text = json[0]
+            await embed.embedText(ctx, 'Ron Swanson Says', text)
+        except Exception as e:
+            await ctx.send("An Error Occured")
 
     @commands.command(aliases=['fox'])
     @commands.cooldown(rate=6, per=10.0, type=commands.BucketType.user)
     @commands.bot_has_permissions(embed_links=True)
     async def foxy(self, ctx):
         """ Get an image of a foxy """
-        json = Fun.urljson('https://randomfox.ca/floof/', None)
-        img_url = json['image']
-        await embed.embedImage(ctx, img_url)
+        try:
+            json = Fun.urljson('https://randomfox.ca/floof/', None)
+            img_url = json['image']
+            await embed.embedImage(ctx, img_url)
+        except Exception as e:
+            await ctx.send("An Error Occured")
 
     @commands.command(aliases=['dog'])
     @commands.cooldown(rate=6, per=10.0, type=commands.BucketType.user)
     @commands.bot_has_permissions(embed_links=True)
     async def woof(self, ctx):
         """ Get an image of a Woof """
-        json = Fun.urljson('https://dog.ceo/api/breeds/image/random', None)
-        img_url = json['message']
-        await embed.embedImage(ctx, img_url)
+        try:
+            json = Fun.urljson('https://dog.ceo/api/breeds/image/random', None)
+            img_url = json['message']
+            await embed.embedImage(ctx, img_url)
+        except Exception as e:
+            await ctx.send("An Error Occured")
 
     @commands.command(aliases=['cat'])
     @commands.cooldown(rate=6, per=10.0, type=commands.BucketType.user)
     @commands.bot_has_permissions(embed_links=True)
     async def meow(self, ctx):
         '''Get an image of a Meow'''
-        if self.config.theCatAPI is None or self.config.theCatAPI == "https://thecatapi.com/":
-            raise commands.CommandError('TheCatAPI is not setup.')
-        json = Fun.urljson('https://api.thecatapi.com/v1/images/search', {'x-api-key': self.config.theCatAPI})
+        try:
+            if self.config.theCatAPI is None or self.config.theCatAPI == "https://thecatapi.com/":
+                raise commands.CommandError('TheCatAPI is not setup.')
+            json = Fun.urljson('https://api.thecatapi.com/v1/images/search',
+                               {'x-api-key': self.config.theCatAPI})
 
-        data = json[0]
-        img_url = data['url']
-        await embed.embedImage(ctx, img_url)
+            data = json[0]
+            img_url = data['url']
+            await embed.embedImage(ctx, img_url)
+        except Exception as e:
+            await ctx.send("An Error Occured")
 
 
 def setup(bot):

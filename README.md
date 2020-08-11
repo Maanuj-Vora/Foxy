@@ -8,9 +8,28 @@ A basic discord bot heavily influenced by [discord_bot.py](https://github.com/Al
 ## Features
 
 * [x] Get An Image of A Foxy, Meow, and Woof
-* [x] Specific Admin Commands(Only shown in code)
-* [x] Specific Moderator Commands(Shown in help message)
+* [x] Get Jokes, Chuck Norris Jokes, and Ron Swanson Quotes
+* [x] Grab Top Google News News
+* [x] Consult The All-Knowing 8Ball
+* [x] Specific Admin Commands
+* [x] Specific Moderator Commands
 * [x] Greet New Members and Say Goodbye
+
+
+---
+
+## Installation
+
+1. Create a virtual environment using the command `virtualenv -p python3 venv` and then activate the virtual environment by doing `.\venv\Scripts\activate`
+2. Install `requirements.txt` using pip via `pip3 install -r requirements.txt`
+3. Rename the `example.config.json` file to `config.json` and fill in the fields
+4. run `main.py` and hope for the best
+
+---
+
+### Please Read
+
+Please keep my account id in the owners in `config.json`
 
 ---
 
@@ -37,6 +56,7 @@ A basic discord bot heavily influenced by [discord_bot.py](https://github.com/Al
 | Fun          | chucknorris              | Get a Chuck Norris Joke                                               |
 | Fun          | foxy                     | Get an image of a foxy                                                |
 | Fun          | meow                     | Get an image of a Meow                                                |
+| Fun          | joke                     | Get a Random Joke                                                     |
 | Fun          | ronswanson               | Get a Ron Swanson Quote                                               || Fun          | woof                     | Get an image of a Woof                                                |
 | Fun          | 8ball <question>         | Consult the supreme, all knowing 8ball to receive an answer           |
 | Information  | about                    | About the bot                                                         |
@@ -61,18 +81,3 @@ A basic discord bot heavily influenced by [discord_bot.py](https://github.com/Al
 | Moderator    | unmute <user> [reason]   | Unmutes a user from the current server                                |
 | News         | news <number>            | Gets The Top News Articles From Google News                           |
 | No Category  | help                     | Show the help message                                                 |
-
----
-
-## Installation
-
-1. Create a virtual environment using the command `virtualenv -p python3 venv` and then activate the virtual environment by doing `.\venv\Scripts\activate`
-2. Install `requirements.txt` using pip via `pip3 install -r requirements.txt`
-3. Rename the `example.config.json` file to `config.json` and fill in the fields
-4. run `main.py` and hope for the best
-
----
-
-### Please Read
-
-Please keep my account id in the owners in `config.json`
