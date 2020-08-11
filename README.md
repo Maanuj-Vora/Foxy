@@ -27,6 +27,8 @@ A basic discord bot heavily influenced by [discord_bot.py](https://github.com/Al
 | Admin        | reboot                   | Reboot the bot                                                        |
 | Admin        | dm <user_id> [message]   | Direct message the user of your choice                                |
 | Animal       | foxy                     | Get an image of a foxy                                                |
+| Animal       | woof                     | Get an image of a Woof                                                |
+| Animal       | meow                     | Get an image of a Meow                                                |
 | Discord Info | avatar <user>            | Get the avatar of you or someone else                                 |
 | Discord Info | joinedat <user>          | Check when a user joined the current server                           |
 | Discord Info | mods                     | Check which mods are online on current guild                          |
