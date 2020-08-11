@@ -7,7 +7,7 @@ import time
 import aiohttp
 import discord
 from discord.ext import commands
-from utils import default
+from utils import default, embed
 import requests
 
 
@@ -26,14 +26,7 @@ class Animal(commands.Cog):
             discord.HTTPException, aiohttp.ClientError, asyncio.TimeoutError, commands.CommandError)
         self.QUERY_ERROR = commands.CommandError(
             'Query failed. Try again later.')
-
-    async def embedMessage(ctx, img_url):
-        embedColour = discord.Embed.Empty
-        if hasattr(ctx, 'guild') and ctx.guild is not None:
-            embedColour = ctx.me.top_role.colour
-        embed = discord.Embed(colour=embedColour)
-        embed.set_image(url=img_url)
-        await ctx.send(embed=embed)
+            
 
     @commands.command(aliases=['fox'])
     @commands.cooldown(rate=6, per=10.0, type=commands.BucketType.user)
@@ -47,7 +40,7 @@ class Animal(commands.Cog):
                 raise QUERY_ERROR
             json = response.json()
             img_url = json['image']
-            await Animal.embedMessage(ctx, img_url)
+            await embed.embedImage(ctx, img_url)
         except self.QUERY_EXCEPTIONS:
             raise QUERY_ERROR
 
@@ -63,7 +56,7 @@ class Animal(commands.Cog):
                 raise QUERY_ERROR
             json = response.json()
             img_url = json['message']
-            await Animal.embedMessage(ctx, img_url)
+            await embed.embedImage(ctx, img_url)
         except self.QUERY_EXCEPTIONS:
             raise QUERY_ERROR
 
@@ -73,7 +66,7 @@ class Animal(commands.Cog):
     async def meow(self, ctx):
         '''Get an image of a Meow'''
 
-        if self.config.theCatAPI is None or self.config.theCatAPI is "https://thecatapi.com/":
+        if self.config.theCatAPI is None or self.config.theCatAPI == "https://thecatapi.com/":
             raise commands.CommandError('TheCatAPI is not setup.')
         try:
             resp = requests.get('https://api.thecatapi.com/v1/images/search',
@@ -83,7 +76,7 @@ class Animal(commands.Cog):
             json = resp.json()
             data = json[0]
             img_url = data['url']
-            await Animal.embedMessage(ctx, img_url)
+            await embed.embedImage(ctx, img_url)
         except self.QUERY_EXCEPTIONS:
             raise QUERY_ERROR
 

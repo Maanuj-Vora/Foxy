@@ -37,6 +37,8 @@ A basic discord bot heavily influenced by [discord_bot.py](https://github.com/Al
 | Discord Info | server avatar            | Get the current server icon                                           |
 | Discord Info | server banner            | Get the current banner image                                          |
 | Discord Info | user <user>              | Get user information                                                  |
+| Fun          | chucknorris              | Get a Chuck Norris Joke                                               |
+| Fun          | 8ball <question>         | Consult the supreme, all knowing 8ball to receive an answer           |
 | Information  | about                    | About the bot                                                         |
 | Information  | invite                   | Invite me to your server                                              |
 | Information  | ping                     | Pong!                                                                 |
@@ -57,6 +59,7 @@ A basic discord bot heavily influenced by [discord_bot.py](https://github.com/Al
 | Moderator    | prune mentions           | Removes messages that have mentions in them                           |
 | Moderator    | unban <user> [reason]    | Unbans a user from the current server                                 |
 | Moderator    | unmute <user> [reason]   | Unmutes a user from the current server                                |
+| News         | news <number>            | Gets The Top News Articles From Google News                           |
 | No Category  | help                     | Show the help message                                                 |
 
 ---
