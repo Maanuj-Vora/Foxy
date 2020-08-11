@@ -8,4 +8,5 @@ A basic discord bot heavily influenced by [discord_bot.py](https://github.com/Al
 
 - [x] Specific Admin Commands(Only shown in code)
 - [x] Specific Moderator Commands(Shown in help message)
-- [x] Greet New Member and Say Goodbye
+- [x] Greet New Members and Say Goodbye
+
