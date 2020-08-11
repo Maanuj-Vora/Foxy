@@ -29,6 +29,7 @@ A basic discord bot heavily influenced by [discord_bot.py](https://github.com/Al
 ### Please Read
 
 Please keep my account id in the owners in `config.json`
+
 ---
 
 ## Table of Commands
