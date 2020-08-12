@@ -30,6 +30,19 @@ class Information(commands.Cog):
         """ Invite me to your server """
         await ctx.send(f"**{ctx.author.name}**, use this URL to invite me\n<{discord.utils.oauth_url(self.bot.user.id, permissions=discord.Permissions(1610088311))}>")
 
+    # @commads.command(aliases=['develop', 'developersever', 'developserver', 'developerinvite', 'developinvite'])
+    # async def developer(self, ctx):
+    #     """ Join the development server """
+    #      try:
+    #         response = requests.get(url)
+    #         if response.status_code != 200:
+
+    #         json = response.json()
+    #         return json
+    #     except Exception as e:
+    #         print(e)
+    #     await ctx.send(f"**{ctx.author.name}**, use this URL to join the development server\nhttps://discord.gg/G9mvWTx")
+
     @commands.command(aliases=['info', 'stats', 'status'])
     async def about(self, ctx):
         """ About the bot """

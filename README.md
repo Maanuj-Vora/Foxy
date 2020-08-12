@@ -5,6 +5,12 @@ A basic discord bot heavily influenced by [discord_bot.py](https://github.com/Al
 
 ---
 
+## Contact Me
+
+Via discord - Rainbwshep#4828
+
+---
+
 ## Features
 
 * [x] Get An Image of A Foxy, Meow, and Woof
@@ -82,7 +88,8 @@ Please keep my account id in the owners in `config.json` and credit me when usin
 | Moderator    | unban <user> [reason]    | Unbans a user from the current server                                 |
 | Moderator    | unmute <user> [reason]   | Unmutes a user from the current server                                |
 | News         | news <number>            | Gets The Top News Articles From Google News                           |
-| UrlShort     | urlshort <url>           | Shortens a URL                                                        |
+| UrlStuff     | urlshort <url>           | Shortens a URL                                                        |
+| UrlStuff     | websitestatus <url>      | Finds the Status of a Website                                         |
 | No Category  | help                     | Show the help message                                                 |
 
 ---
@@ -96,3 +103,4 @@ Please keep my account id in the owners in `config.json` and credit me when usin
 * [x] [https://dog.ceo/](https://dog.ceo/)
 * [x] [https://thecatapi.com/](https://thecatapi.com/)
 * [x] [https://rel.ink/](https://rel.ink/)
+* [x] [https://http.cat/](https://http.cat/)
