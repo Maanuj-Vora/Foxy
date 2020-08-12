@@ -52,10 +52,9 @@ class Fun(commands.Cog):
         async with ctx.message.channel.typing():
             for x in range(0, 5):
                 json = Fun.urljson('http://api.icndb.com/jokes/random', None)
-                text = json['value'].get('joke')
-                textLower = text.lower()
+                textLower = json['value'].get('joke').lower()
                 if not any(map(textLower.__contains__, lists.profanity)):
-                    await embed.embedText(ctx, text)
+                    await embed.embedText(ctx, json['value'].get('joke'))
                     return
             await embed.embedText(ctx, 'Could not find a PG Chuck Norris Joke')
             return
@@ -88,10 +87,27 @@ class Fun(commands.Cog):
         try:
             json = Fun.urljson(
                 'http://ron-swanson-quotes.herokuapp.com/v2/quotes', None)
-            text = json[0]
-            await embed.embedText(ctx, 'Ron Swanson Says', text)
+            await embed.embedText(ctx, 'Ron Swanson Says', json[0])
+            return
         except Exception as e:
             await ctx.send("An Error Occured")
+            return
+
+    @commands.command()
+    async def bored(self, ctx):
+        """ Get a Random Thing To Do If You're Bored """
+        try:
+            json = Fun.urljson(
+                'https://www.boredapi.com/api/activity', None)
+            if json['link'] == "":
+                await embed.embedText(ctx, json['type'], json['activity'])
+                return
+            else:
+                await embed.embedText(ctx, json['type'], json['activity']+"\n"+json['link'])
+                return
+        except Exception as e:
+            await ctx.send("An Error Occured")
+            return
 
     @commands.command(aliases=['fox'])
     @commands.cooldown(rate=6, per=10.0, type=commands.BucketType.user)
@@ -100,10 +116,11 @@ class Fun(commands.Cog):
         """ Get an image of a foxy """
         try:
             json = Fun.urljson('https://randomfox.ca/floof/', None)
-            img_url = json['image']
-            await embed.embedImage(ctx, img_url)
+            await embed.embedImage(ctx, json['image'])
+            return
         except Exception as e:
             await ctx.send("An Error Occured")
+            return
 
     @commands.command(aliases=['dog'])
     @commands.cooldown(rate=6, per=10.0, type=commands.BucketType.user)
@@ -112,10 +129,11 @@ class Fun(commands.Cog):
         """ Get an image of a Woof """
         try:
             json = Fun.urljson('https://dog.ceo/api/breeds/image/random', None)
-            img_url = json['message']
-            await embed.embedImage(ctx, img_url)
+            await embed.embedImage(ctx, json['message'])
+            return
         except Exception as e:
             await ctx.send("An Error Occured")
+            return
 
     @commands.command(aliases=['cat'])
     @commands.cooldown(rate=6, per=10.0, type=commands.BucketType.user)
@@ -128,11 +146,11 @@ class Fun(commands.Cog):
             json = Fun.urljson('https://api.thecatapi.com/v1/images/search',
                                {'x-api-key': self.config.theCatAPI})
 
-            data = json[0]
-            img_url = data['url']
-            await embed.embedImage(ctx, img_url)
+            await embed.embedImage(ctx, (json[0])['url'])
+            return
         except Exception as e:
             await ctx.send("An Error Occured")
+            return
 
 
 def setup(bot):

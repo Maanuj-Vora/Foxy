@@ -15,6 +15,7 @@ A basic discord bot heavily influenced by [discord_bot.py](https://github.com/Al
 * [x] Specific Admin Commands
 * [x] Specific Moderator Commands
 * [x] Greet New Members and Say Goodbye
+* [x] Plus a Lot More
 
 ---
 
@@ -29,7 +30,8 @@ A basic discord bot heavily influenced by [discord_bot.py](https://github.com/Al
 
 ### Please Read
 
-Please keep my account id in the owners in `config.json`
+Please keep my account id in the owners in `config.json` and credit me when using this bot
+
 ---
 
 ## Table of Commands
@@ -52,6 +54,7 @@ Please keep my account id in the owners in `config.json`
 | Discord Info | server avatar            | Get the current server icon                                           |
 | Discord Info | server banner            | Get the current banner image                                          |
 | Discord Info | user <user>              | Get user information                                                  |
+| Fun          | bored                    | Get a Random Thing To Do If You're Bored                              |
 | Fun          | chucknorris              | Get a Chuck Norris Joke                                               |
 | Fun          | foxy                     | Get an image of a foxy                                                |
 | Fun          | meow                     | Get an image of a Meow                                                |

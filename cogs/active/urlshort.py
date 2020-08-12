@@ -17,7 +17,7 @@ class UrlShort(commands.Cog):
     async def urlshort(self, ctx, *, url):
         """ Shortens a URL """
 
-        url = "http://google.com".strip()
+        url = url.strip()
         data = {'url': url}
         req = requests.post('https://rel.ink/api/links/', data=data).text
         jsonUrl = json.loads(req)

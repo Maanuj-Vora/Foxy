@@ -23,7 +23,7 @@ class Admin(commands.Cog):
 
         await ctx.send(f"LOL, no {ctx.author.name}")
 
-    @commands.command(hidden=True)
+    @commands.command()
     @commands.check(permissions.is_owner)
     async def load(self, ctx, name: str):
         """ Loads an extension. """
@@ -33,7 +33,7 @@ class Admin(commands.Cog):
             return await ctx.send(default.traceback_maker(e))
         await ctx.send(f"Loaded extension **{name}.py**")
 
-    @commands.command(hidden=True)
+    @commands.command()
     @commands.check(permissions.is_owner)
     async def unload(self, ctx, name: str):
         """ Unloads an extension. """
@@ -43,7 +43,7 @@ class Admin(commands.Cog):
             return await ctx.send(default.traceback_maker(e))
         await ctx.send(f"Unloaded extension **{name}.py**")
 
-    @commands.command(hidden=True)
+    @commands.command()
     @commands.check(permissions.is_owner)
     async def reload(self, ctx, name: str):
         """ Reloads an extension. """
@@ -53,7 +53,7 @@ class Admin(commands.Cog):
             return await ctx.send(default.traceback_maker(e))
         await ctx.send(f"Reloaded extension **{name}.py**")
 
-    @commands.command(hidden=True)
+    @commands.command()
     @commands.check(permissions.is_owner)
     async def reloadall(self, ctx):
         """ Reloads all extensions. """
@@ -77,7 +77,7 @@ class Admin(commands.Cog):
 
         await ctx.send("Successfully reloaded all extensions")
 
-    @commands.command(hidden=True)
+    @commands.command()
     @commands.check(permissions.is_owner)
     async def reloadutils(self, ctx, name: str):
         """ Reloads a utils module. """
@@ -92,7 +92,7 @@ class Admin(commands.Cog):
             return await ctx.send(f"Module **{name_maker}** returned error and was not reloaded...\n{error}")
         await ctx.send(f"Reloaded module **{name_maker}**")
 
-    @commands.command(hidden=True)
+    @commands.command()
     @commands.check(permissions.is_owner)
     async def reboot(self, ctx):
         """ Reboot the bot """
@@ -100,7 +100,7 @@ class Admin(commands.Cog):
         time.sleep(1)
         sys.exit(0)
 
-    @commands.command(hidden=True)
+    @commands.command()
     @commands.check(permissions.is_owner)
     async def dm(self, ctx, user_id: int, *, message: str):
         """ DM the user of your choice """
@@ -114,13 +114,13 @@ class Admin(commands.Cog):
         except discord.Forbidden:
             await ctx.send("This user might be having DMs blocked or it's a bot account...")
 
-    @commands.group(hidden=True)
+    @commands.group()
     @commands.check(permissions.is_owner)
     async def change(self, ctx):
         if ctx.invoked_subcommand is None:
             await ctx.send_help(str(ctx.command))
 
-    @change.command(name="playing", hidden=True)
+    @change.command(name="playing")
     @commands.check(permissions.is_owner)
     async def change_playing(self, ctx, *, playing: str):
         """ Change playing status. """
@@ -150,7 +150,7 @@ class Admin(commands.Cog):
         except Exception as e:
             await ctx.send(e)
 
-    @change.command(name="username", hidden=True)
+    @change.command(name="username")
     @commands.check(permissions.is_owner)
     async def change_username(self, ctx, *, name: str):
         """ Change username. """
@@ -160,7 +160,7 @@ class Admin(commands.Cog):
         except discord.HTTPException as err:
             await ctx.send(err)
 
-    @change.command(name="nickname", hidden=True)
+    @change.command(name="nickname")
     @commands.check(permissions.is_owner)
     async def change_nickname(self, ctx, *, name: str = None):
         """ Change nickname. """
@@ -173,7 +173,7 @@ class Admin(commands.Cog):
         except Exception as err:
             await ctx.send(err)
 
-    @change.command(name="avatar", hidden=True)
+    @change.command(name="avatar")
     @commands.check(permissions.is_owner)
     async def change_avatar(self, ctx, url: str = None):
         """ Change avatar. """
