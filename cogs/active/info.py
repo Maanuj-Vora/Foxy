@@ -5,7 +5,7 @@ import os
 
 from datetime import datetime
 from discord.ext import commands
-from utils import default
+from utils import default, jsondata
 
 import requests
 
@@ -35,19 +35,12 @@ class Information(commands.Cog):
     @commands.command(aliases=['develop', 'developersever', 'developserver', 'developerinvite', 'developinvite'])
     async def developer(self, ctx):
         """ Join the development server """
-        try:
-            response = requests.get(
-                "https://maanuj-vora.github.io/Foxy/data.json")
-            if response.status_code != 200:
-                await ctx.send(f"**{ctx.author.name}**, An error occured")
-                return
-            json = response.json()
-            inviteLink = json['inviteUrl']
-            await ctx.send(f"**{ctx.author.name}**, use this URL to join the development server\n{inviteLink}")
+        invite = jsondata.getInvite()
+        if(invite == None):
+            await ctx.send(f"**{ctx.author.name}**, no invite is available at the moment")
             return
-        except Exception as e:
-            await ctx.send(f"**{ctx.author.name}**, An error occured")
-            return
+        await ctx.send(f"**{ctx.author.name}**, use this URL to join the development server\n{invite}")
+        return
 
     @commands.command(aliases=['info', 'stats', 'status'])
     async def about(self, ctx):

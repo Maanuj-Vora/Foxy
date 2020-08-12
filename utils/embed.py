@@ -1,6 +1,9 @@
 import discord
 from discord.ext import commands
 from multipledispatch import dispatch
+import requests
+
+from utils import jsondata
 
 async def embedImage(ctx, img_url):
     embedColour = discord.Embed.Empty
@@ -9,7 +12,7 @@ async def embedImage(ctx, img_url):
     embed = discord.Embed(colour=embedColour)
     embed.set_image(url=img_url)
     embed.set_author(name="Requested by {}".format(ctx.message.author.name))
-    embed.set_footer(text="Developed by {}".format("Rainbwshep#4828"))
+    embed.set_footer(text="Developed by {}".format(jsondata.getDeveloper()))
     await ctx.send(embed=embed)
     return
 
@@ -21,7 +24,7 @@ async def embedText(ctx, title, value):
     embed = discord.Embed(colour=embedColour)
     embed.add_field(name=title, value=value)
     embed.set_author(name="Requested by {}".format(ctx.message.author.name))
-    embed.set_footer(text="Developed by {}".format("Rainbwshep#4828"))
+    embed.set_footer(text="Developed by {}".format(jsondata.getDeveloper()))
     await ctx.send(embed=embed)
 
 @dispatch(object, str)
@@ -32,7 +35,7 @@ async def embedText(ctx, value):
     embed = discord.Embed(colour=embedColour)
     embed.add_field(name='\u200b', value=value+'\n\u200b')
     embed.set_author(name="Requested by {}".format(ctx.message.author.name))
-    embed.set_footer(text="Developed by {}".format("Rainbwshep#4828"))
+    embed.set_footer(text="Developed by {}".format(jsondata.getDeveloper()))
     await ctx.send(embed=embed)
     return
 
