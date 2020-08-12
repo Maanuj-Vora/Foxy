@@ -109,6 +109,19 @@ class Fun(commands.Cog):
             await ctx.send("An Error Occured")
             return
 
+    @commands.command(aliases=['kanye', 'kw', 'kanyequote'])
+    async def kanyewest(self, ctx):
+        """ Get a Kanye West Quote """
+        async with ctx.message.channel.typing():
+            for x in range(0, 5):
+                json = Fun.urljson('https://api.kanye.rest/?format=json', None)
+                textLower = json['quote'].lower()
+                if not any(map(textLower.__contains__, lists.profanity)):
+                    await embed.embedText(ctx, json['quote'])
+                    return
+            await embed.embedText(ctx, 'Could not find a PG Kanye West Quote')
+            return
+
     @commands.command(aliases=['fox'])
     @commands.cooldown(rate=6, per=10.0, type=commands.BucketType.user)
     @commands.bot_has_permissions(embed_links=True)

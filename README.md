@@ -67,6 +67,7 @@ Please keep my account id in the owners in `config.json` and credit me when usin
 | Fun          | bored                    | Get a Random Thing To Do If You're Bored                              |
 | Fun          | chucknorris              | Get a Chuck Norris Joke                                               |
 | Fun          | foxy                     | Get an image of a foxy                                                |
+| Fun          | kanyewest                | Get a Kanye West Quote                                                |
 | Fun          | meow                     | Get an image of a Meow                                                |
 | Fun          | joke                     | Get a Random Joke                                                     |
 | Fun          | ronswanson               | Get a Ron Swanson Quote                                               || Fun          | woof                     | Get an image of a Woof                                                |
@@ -109,3 +110,4 @@ Please keep my account id in the owners in `config.json` and credit me when usin
 * [x] [https://thecatapi.com/](https://thecatapi.com/)
 * [x] [https://rel.ink/](https://rel.ink/)
 * [x] [https://http.cat/](https://http.cat/)
+* [x] [https://kanye.rest/](https://kanye.rest/)
