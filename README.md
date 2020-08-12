@@ -9,6 +9,8 @@ A basic discord bot heavily influenced by [discord_bot.py](https://github.com/Al
 
 Via discord - Rainbwshep#4828
 
+Foxy Development Discord Server - [https://discord.gg/46Yxg36](https://discord.gg/46Yxg36)
+
 ---
 
 ## Features
@@ -22,6 +24,8 @@ Via discord - Rainbwshep#4828
 * [x] Specific Moderator Commands
 * [x] Greet New Members and Say Goodbye
 * [x] Plus a Lot More
+
+* [ ] Request Features By Posting in the Discord Server
 
 ---
 
@@ -68,6 +72,7 @@ Please keep my account id in the owners in `config.json` and credit me when usin
 | Fun          | ronswanson               | Get a Ron Swanson Quote                                               || Fun          | woof                     | Get an image of a Woof                                                |
 | Fun          | 8ball <question>         | Consult the supreme, all knowing 8ball to receive an answer           |
 | Information  | about                    | About the bot                                                         |
+| Information  | developer                | Provides invite link to the bot development server
 | Information  | invite                   | Invite me to your server                                              |
 | Information  | ping                     | Pong!                                                                 |
 | Moderator    | announcerole <role>      | Makes a role mentionable and removes it whenever you mention the role |

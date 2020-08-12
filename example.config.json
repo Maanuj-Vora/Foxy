@@ -7,7 +7,7 @@
     "prefix": [
         "!"
     ],
-    "playing": "Alpha Release",
+    "playing": "This is my status message",
     "playing_type": "playing|watching|listening",
     "status_type": "online|idle|dnd",
     "version": "0.0.1",

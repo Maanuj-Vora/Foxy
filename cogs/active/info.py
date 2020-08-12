@@ -7,6 +7,8 @@ from datetime import datetime
 from discord.ext import commands
 from utils import default
 
+import requests
+
 import sys
 
 
@@ -30,18 +32,22 @@ class Information(commands.Cog):
         """ Invite me to your server """
         await ctx.send(f"**{ctx.author.name}**, use this URL to invite me\n<{discord.utils.oauth_url(self.bot.user.id, permissions=discord.Permissions(1610088311))}>")
 
-    # @commads.command(aliases=['develop', 'developersever', 'developserver', 'developerinvite', 'developinvite'])
-    # async def developer(self, ctx):
-    #     """ Join the development server """
-    #      try:
-    #         response = requests.get(url)
-    #         if response.status_code != 200:
-
-    #         json = response.json()
-    #         return json
-    #     except Exception as e:
-    #         print(e)
-    #     await ctx.send(f"**{ctx.author.name}**, use this URL to join the development server\nhttps://discord.gg/G9mvWTx")
+    @commands.command(aliases=['develop', 'developersever', 'developserver', 'developerinvite', 'developinvite'])
+    async def developer(self, ctx):
+        """ Join the development server """
+        try:
+            response = requests.get(
+                "https://maanuj-vora.github.io/Foxy/data.json")
+            if response.status_code != 200:
+                await ctx.send(f"**{ctx.author.name}**, An error occured")
+                return
+            json = response.json()
+            inviteLink = json['inviteUrl']
+            await ctx.send(f"**{ctx.author.name}**, use this URL to join the development server\n{inviteLink}")
+            return
+        except Exception as e:
+            await ctx.send(f"**{ctx.author.name}**, An error occured")
+            return
 
     @commands.command(aliases=['info', 'stats', 'status'])
     async def about(self, ctx):
