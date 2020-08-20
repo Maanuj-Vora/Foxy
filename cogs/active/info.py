@@ -32,7 +32,7 @@ class Information(commands.Cog):
         """ Invite me to your server """
         await ctx.send(f"**{ctx.author.name}**, use this URL to invite me\n<{discord.utils.oauth_url(self.bot.user.id, permissions=discord.Permissions(1610088311))}>")
 
-    @commands.command(aliases=['develop', 'developersever', 'developserver', 'developerinvite', 'developinvite'])
+    @commands.command(aliases=['develop', 'developerserver', 'developserver', 'developerinvite', 'developinvite'])
     async def developer(self, ctx):
         """ Join the development server """
         invite = jsondata.getInvite()
