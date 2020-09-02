@@ -16,6 +16,7 @@ Foxy Development Discord Server - [https://discord.gg/46Yxg36](https://discord.g
 ## Features
 
 * [x] Get An Image of A Foxy, Meow, and Woof
+* [x] Get A Random ATLA Quote
 * [x] Get Jokes, Chuck Norris Jokes, and Ron Swanson Quotes
 * [x] Grab Top Google News News
 * [x] Consult The All-Knowing 8Ball
@@ -73,9 +74,10 @@ Please keep my account id in the owners in `config.json` and credit me when usin
 | Fun          | ronswanson               | Get a Ron Swanson Quote                                               || Fun          | woof                     | Get an image of a Woof                                                |
 | Fun          | 8ball <question>         | Consult the supreme, all knowing 8ball to receive an answer           |
 | Information  | about                    | About the bot                                                         |
-| Information  | developer                | Provides invite link to the bot development server
+| Information  | developer                | Provides invite link to the bot development server                    |
 | Information  | invite                   | Invite me to your server                                              |
 | Information  | ping                     | Pong!                                                                 |
+| ManyAPI      | atla                     | Get a Random ATLA Quote                                               |
 | Moderator    | announcerole <role>      | Makes a role mentionable and removes it whenever you mention the role |
 | Moderator    | ban <user> [reason]      | Bans a user from the current server                                   |
 | Moderator    | find                     | Finds a user within your search term                                  |
@@ -102,6 +104,7 @@ Please keep my account id in the owners in `config.json` and credit me when usin
 
 ## Api's Utilized
 
+* [x] [https://github.com/Maanuj-Vora/Many-Api](https://github.com/Maanuj-Vora/Many-Api)
 * [x] [http://www.icndb.com/](http://www.icndb.com/)
 * [x] [https://sv443.net/jokeapi/v2/](https://sv443.net/jokeapi/v2/)
 * [x] [https://github.com/jamesseanwright/ron-swanson-quotes#ron-swanson-quotes-api](https://github.com/jamesseanwright/ron-swanson-quotes#ron-swanson-quotes-api)
