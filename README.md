@@ -16,6 +16,7 @@ Foxy Development Discord Server - [https://discord.gg/46Yxg36](https://discord.g
 ## Features
 
 * [x] Get An Image of A Foxy, Meow, and Woof
+* [x] Get Current Coronavirus Statistics by ISO Code
 * [x] Get A Random ATLA Quote
 * [x] Get Jokes, Chuck Norris Jokes, and Ron Swanson Quotes
 * [x] Grab Top Google News News
@@ -71,13 +72,15 @@ Please keep my account id in the owners in `config.json` and credit me when usin
 | Fun          | kanyewest                | Get a Kanye West Quote                                                |
 | Fun          | meow                     | Get an image of a Meow                                                |
 | Fun          | joke                     | Get a Random Joke                                                     |
-| Fun          | ronswanson               | Get a Ron Swanson Quote                                               || Fun          | woof                     | Get an image of a Woof                                                |
+| Fun          | ronswanson               | Get a Ron Swanson Quote                                               |
+| Fun          | woof                     | Get an image of a Woof                                                |
 | Fun          | 8ball <question>         | Consult the supreme, all knowing 8ball to receive an answer           |
 | Information  | about                    | About the bot                                                         |
 | Information  | developer                | Provides invite link to the bot development server                    |
 | Information  | invite                   | Invite me to your server                                              |
 | Information  | ping                     | Pong!                                                                 |
 | ManyAPI      | atla                     | Get a Random ATLA Quote                                               |
+| ManyAPI      | covid [ISO code]         | Get The Coronavirus Statistics By ISO                                 |
 | Moderator    | announcerole <role>      | Makes a role mentionable and removes it whenever you mention the role |
 | Moderator    | ban <user> [reason]      | Bans a user from the current server                                   |
 | Moderator    | find                     | Finds a user within your search term                                  |

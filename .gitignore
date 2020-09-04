@@ -3,6 +3,7 @@ config.json
 
 # Virtual Environment
 foxy
+venv
 
 # __pycache__
 cogs/active/__pycache__

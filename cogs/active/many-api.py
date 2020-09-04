@@ -8,7 +8,7 @@ import asyncio
 import requests
 import time
 
-from utils import default, lists, embed
+from utils import default, lists, embed, jsondata
 
 
 class ManyAPI(commands.Cog):
@@ -36,14 +36,41 @@ class ManyAPI(commands.Cog):
         except QUERY_EXCEPTIONS:
             raise QUERY_ERROR
 
-
     @commands.command(aliases=['atla', 'avatarquote'])
     async def ATLAQuotes(self, ctx):
         """ Get a Random ATLA Quote """
-        async with ctx.message.channel.typing():
-            json = ManyAPI.urljson('https://many-api.vercel.app/atla-quote/random', None)
-            await embed.embedText(ctx, json['author'], json['quote'])
-            return
+        json = ManyAPI.urljson(
+            'https://many-api.vercel.app/atla-quote/random', None)
+        await embed.embedText(ctx, json['author'], json['quote'])
+        return
+
+    @commands.command(aliases=['covid'])
+    async def covidiso(self, ctx, *, iso: commands.clean_content):
+        """ Get The Coronavirus Statistics By ISO """
+        json = (ManyAPI.urljson(
+            f'https://many-api.vercel.app/coronavirus/getData?iso={iso.strip()}', None))[0]
+        embedColour = discord.Embed.Empty
+        embedColour = ctx.me.top_role.colour
+        embed = discord.Embed(colour=embedColour)
+        embed.set_author(name="Requested by {}".format(
+            ctx.message.author.name))
+        embed.add_field(name='Date', value=json['date'])
+        embed.add_field(name='Total Cases', value=json['total_cases'])
+        embed.add_field(name='Total Deaths', value=json['total_deaths'])
+        embed.add_field(name='Total Cases Per Million',
+                        value=json['total_cases_per_million'])
+        embed.add_field(name='Total Deaths Per Million',
+                        value=json['total_deaths_per_million'])
+        embed.add_field(name='New Cases', value=json['new_cases'])
+        embed.add_field(name='New Deaths', value=json['new_deaths'])
+        embed.add_field(name='New Cases Per Million',
+                        value=json['new_cases_per_million'])
+        embed.add_field(name='New Deaths Per Million',
+                        value=json['new_deaths_per_million'])
+        embed.set_footer(text="Developed by {}".format(
+            jsondata.getDeveloper()))
+        await ctx.send(embed=embed)
+        return
 
 
 def setup(bot):
