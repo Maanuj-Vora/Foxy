@@ -75,6 +75,40 @@ class ManyAPI(commands.Cog):
             await ctx.send('Sorry, an error occured. Please try again later')
         return
 
+    @commands.command(aliases=['isocode'])
+    async def iso(self, ctx):
+        """ Get ISO Codes For The Coronavirus Statistics """
+        try:
+            json = (ManyAPI.urljson(
+                'https://many-api.vercel.app/coronavirus/getISO', None))
+            print(json)
+
+            embedColour = discord.Embed.Empty
+            embedColour = ctx.me.top_role.colour
+            embed = discord.Embed(colour=embedColour)
+            embed.set_author(name="Requested by {}".format(
+                ctx.message.author.name))
+            indexer = 0
+            for x in json.get('iso_code'):
+                if indexer > 24:
+                    embed.set_footer(text="Developed by {}".format(
+                        jsondata.getDeveloper()))
+                    await ctx.send(embed=embed)
+                    embedColour = discord.Embed.Empty
+                    embedColour = ctx.me.top_role.colour
+                    embed = discord.Embed(colour=embedColour)
+                    embed.set_author(name="Requested by {}".format(
+                        ctx.message.author.name))
+                    indexer = 0
+                embed.add_field(name=x['iso'], value=x['location'], inline=True)
+                indexer+=1
+            embed.set_footer(text="Developed by {}".format(
+                jsondata.getDeveloper()))
+            await ctx.send(embed=embed)
+        except Exception as e:
+            await ctx.send('Sorry, an error occured. Please try again later')
+        return
+
 
 def setup(bot):
     bot.add_cog(ManyAPI(bot))

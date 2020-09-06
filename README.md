@@ -81,6 +81,7 @@ Please keep my account id in the owners in `config.json` and credit me when usin
 | Information  | ping                     | Pong!                                                                 |
 | ManyAPI      | atla                     | Get a Random ATLA Quote                                               |
 | ManyAPI      | covid [ISO code]         | Get The Coronavirus Statistics By ISO                                 |
+| ManyAPI      | iso                      | Get ISO Codes For The Coronavirus Statistics                          |
 | Moderator    | announcerole <role>      | Makes a role mentionable and removes it whenever you mention the role |
 | Moderator    | ban <user> [reason]      | Bans a user from the current server                                   |
 | Moderator    | find                     | Finds a user within your search term                                  |
