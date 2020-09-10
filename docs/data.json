@@ -4,6 +4,8 @@
     "botInvite": "https://discord.com/oauth2/authorize?client_id=742899822226440313&scope=bot&permissions=1610088311",
     "mongoBase": {
         "onMemberEntry": "False",
-        "onMemberLeave": "False"
+        "onMemberLeave": "False",
+        "welcome": "Welcome member.mention to our cozy little home.",
+        "leave": "Sorry to see you go member.mention"
     }
 }
