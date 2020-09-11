@@ -11,6 +11,8 @@
     "playing_type": "playing|watching|listening",
     "status_type": "online|idle|dnd",
     "version": "0.0.1",
+    "dbOn": "True/False",
+    "dburi": "MongoDB Atlas Connect URL",
     "welcome": "Welcome member.mention to our cozy little home.",
     "leave": "Sorry to see you go member.mention",
     "theCatAPI": "https://thecatapi.com/"

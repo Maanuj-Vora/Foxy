@@ -19,3 +19,21 @@ def getInvite():
         json = response.json()
         invite = json['invite']
     return invite
+
+def getBotInvite():
+    response = requests.get(jsonUrl)
+    if response.status_code != 200:
+        botInvite = None
+    else:
+        json = response.json()
+        invite = json['botInvite']
+    return invite
+
+def getBasicMongo():
+    response = requests.get(jsonUrl)
+    if response.status_code != 200:
+        mongoBase = None
+    else:
+        json = response.json()
+        mongoBase = json['mongoBase']
+    return mongoBase

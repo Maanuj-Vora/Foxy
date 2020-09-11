@@ -26,7 +26,8 @@ Foxy Development Discord Server - [https://discord.gg/46Yxg36](https://discord.g
 * [x] Specific Moderator Commands
 * [x] Greet New Members and Say Goodbye
 * [x] Plus a Lot More
-* [x] Coming Soon - Cloud Storage
+
+* [ ] In Development - Cloud Storage
 
 * [ ] Request Features By Posting in the Discord Server
 

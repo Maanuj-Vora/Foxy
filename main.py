@@ -1,8 +1,8 @@
 import os
 
-from utils import default
+from utils import default, mongo
 from utils.data import Bot, HelpFormat
-
+import pymongo
 
 config = default.get("config.json")
 
@@ -20,5 +20,7 @@ for file in os.listdir("cogs/active"):
         name = file[:-3]
         bot.load_extension(f"cogs.active.{name}")
 
+if config.dbOn:
+    mongo.instantiate()
 
 bot.run(config.token)

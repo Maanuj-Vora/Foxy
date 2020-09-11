@@ -5,7 +5,7 @@ import os
 from datetime import datetime
 from discord.ext import commands
 from discord.ext.commands import errors
-from utils import default
+from utils import default, mongo
 
 
 class Events(commands.Cog):
@@ -65,6 +65,11 @@ class Events(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         """ The function that activates when boot was completed """
+
+        if bool(self.config.dbOn):
+            for guild in self.bot.guilds:
+                mongo.addGuild(guild)
+
         if not hasattr(self.bot, 'uptime'):
             self.bot.uptime = datetime.utcnow()
 
