@@ -4,6 +4,9 @@ from utils import default, mongo
 from utils.data import Bot, HelpFormat
 import pymongo
 
+import discord
+intents = discord.Intents().all()
+
 config = default.get("config.json")
 
 print("...Attempting to Login...")
@@ -12,7 +15,8 @@ bot = Bot(
     command_prefix=config.prefix,
     prefix=config.prefix,
     command_attrs=dict(hidden=True),
-    help_command=HelpFormat()
+    help_command=HelpFormat(),
+    intents=intents
 )
 
 for file in os.listdir("cogs/active"):
