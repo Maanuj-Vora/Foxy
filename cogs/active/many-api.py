@@ -55,6 +55,7 @@ class ManyAPI(commands.Cog):
             embed = discord.Embed(colour=embedColour)
             embed.set_author(name="Requested by {}".format(
                 ctx.message.author.name))
+            embed.set_image(url=f'https://many-api.vercel.app/coronavirus/getImage?iso={iso.strip()}&type=newCases')
             embed.add_field(name='Date', value=json['date'])
             embed.add_field(name='Total Cases', value=json['total_cases'])
             embed.add_field(name='Total Deaths', value=json['total_deaths'])
