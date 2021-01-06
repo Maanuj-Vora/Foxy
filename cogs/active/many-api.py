@@ -44,6 +44,30 @@ class ManyAPI(commands.Cog):
         await embed.embedText(ctx, json['author'], json['quote'])
         return
 
+    @commands.command(aliases=['mcu', 'mcuquote'])
+    async def MarvelQuotes(self, ctx):
+        """ Get a Random Marvel Quote """
+        json = ManyAPI.urljson(
+            'https://many-api.vercel.app/marvel-quote/random', None)
+        await embed.embedText(ctx, json['author'], json['quote'] + "\n - " + json['movie'])
+        return
+
+    @commands.command(aliases=['garfield'])
+    async def Garfield(self, ctx):
+        """ Get a Random Garfield Comic Strip """
+        json = ManyAPI.urljson(
+            'https://many-api.vercel.app/garfield/random', None)
+        await embed.embedImage(ctx, json['url'])
+        return
+
+    @commands.command()
+    async def joke(self, ctx):
+        """ Get a Random Joke """
+        json = ManyAPI.urljson(
+            'https://many-api.vercel.app/jokes/random', None)
+        await embed.embedText(ctx, json['joke'])
+        return
+
     @commands.command(aliases=['covid'])
     async def covidiso(self, ctx, *, iso: commands.clean_content):
         """ Get The Coronavirus Statistics By ISO """
@@ -55,7 +79,8 @@ class ManyAPI(commands.Cog):
             embed = discord.Embed(colour=embedColour)
             embed.set_author(name="Requested by {}".format(
                 ctx.message.author.name))
-            embed.set_image(url=f'https://many-api.vercel.app/coronavirus/getImage?iso={iso.strip()}&type=newCases')
+            embed.set_image(
+                url=f'https://many-api.vercel.app/coronavirus/getImage?iso={iso.strip()}&type=newCases')
             embed.add_field(name='Date', value=json['date'])
             embed.add_field(name='Total Cases', value=json['total_cases'])
             embed.add_field(name='Total Deaths', value=json['total_deaths'])
@@ -101,8 +126,9 @@ class ManyAPI(commands.Cog):
                     embed.set_author(name="Requested by {}".format(
                         ctx.message.author.name))
                     indexer = 0
-                embed.add_field(name=x['iso'], value=x['location'], inline=True)
-                indexer+=1
+                embed.add_field(
+                    name=x['iso'], value=x['location'], inline=True)
+                indexer += 1
             embed.set_footer(text="Developed by {}".format(
                 jsondata.getDeveloper()))
             await ctx.send(embed=embed)

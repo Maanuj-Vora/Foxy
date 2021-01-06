@@ -59,28 +59,6 @@ class Fun(commands.Cog):
             await embed.embedText(ctx, 'Could not find a PG Chuck Norris Joke')
             return
 
-    @commands.command()
-    async def joke(self, ctx):
-        """ Get a Random Joke """
-        async with ctx.message.channel.typing():
-            try:
-                # while True:
-                #     json = Fun.urljson(
-                #         'https://sv443.net/jokeapi/v2/joke/Any', None)
-                #     if json['category'] != "Dark" and json['flags'].get('nsfw') != True and json['flags'].get('political') != True and json['flags'].get('racist') != True and json['flags'].get('sexist') != True and json['lang'] == 'en':
-                #         break
-                json = Fun.urljson(
-                    'https://sv443.net/jokeapi/v2/joke/Programming,Miscellaneous,Pun?blacklistFlags=nsfw,religious,political,racist,sexist', None)
-                if json['type'] == 'twopart':
-                    await embed.embedText(ctx, json['setup'], json['delivery'])
-                    return
-                elif json['type'] == 'single':
-                    await embed.embedText(ctx, json['joke'])
-                    return
-            except Exception as e:
-                await ctx.send("An Error Occured")
-                return
-
     @commands.command(aliases=['rs', 'rsquote'])
     async def ronswanson(self, ctx):
         """ Get a Ron Swanson Quote """
