@@ -50,5 +50,5 @@ async def embedText(ctx, value):
 #     else:
 #         embed.add_field(name=title, value=value)
 #     embed.set_author(name="Requested by {}".format(ctx.message.author.name))
-#     embed.set_footer(text="Developed by {}".format("Rainbwshep#4828"))
+#     embed.set_footer(text="Developed by {}".format(jsondata.getDeveloper()))
 #     await ctx.send(embed=embed)
