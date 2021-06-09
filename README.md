@@ -7,8 +7,6 @@ A basic discord bot heavily influenced by [discord_bot.py](https://github.com/Al
 
 ## Contact Me
 
-Via discord - Rainbwshep#4828
-
 Foxy Development Discord Server - [https://discord.gg/46Yxg36](https://discord.gg/46Yxg36)
 
 ---
